@@ -1,0 +1,6 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^7.8",
+        "linecorp/line-bot-sdk": "^3.6"
+    }
+}
