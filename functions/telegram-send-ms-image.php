@@ -1,7 +1,6 @@
 <?php
 $token = '6490529602:AAE-zLE1-WuKg00k0mXlAl01ZC3_TPjEJ14';
 $chatId = '1322124126';  
- 
 
 $stickerPath = '../download.jpg';
  
