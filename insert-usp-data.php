@@ -16,6 +16,11 @@
 
     <?php
           include_once("./configs/connectDB.php");
+          function getUPSInfo($upsName) {
+                $command = "sudo upsc $upsName";
+                $output = shell_exec($command);
+                return $output;
+            }
      ?>
 
     <div class="container">
@@ -26,6 +31,8 @@
                 <input type="text" readonly class="form-control" name="voltage" id="">
                 <?php 
             $command="sudo upsc myups@localhost battery.voltage";
+            $command="sudo upsc myups@localhost ";
+
             $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
 
             echo "<pre>$output</pre>"; 
