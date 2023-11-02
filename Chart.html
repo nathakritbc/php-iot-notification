@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real-Time CPU Usage</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.1/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="cpu-usage"></div>
+    <script>
+      const socket = io("ws://your-server-domain:8080");
+
+      socket.on("message", (cpuData) => {
+        // อัพเดตข้อมูลการใช้งาน CPU ที่แสดงบนหน้าเว็บ
+        document.getElementById(
+          "cpu-usage"
+        ).textContent = `CPU Usage: ${cpuData}%`;
+      });
+    </script>
+  </body>
+</html>
