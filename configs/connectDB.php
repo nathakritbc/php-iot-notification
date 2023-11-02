@@ -8,7 +8,7 @@ $port = "3306";
 $conn = mysqli_connect($host, $username, $password, $database,$port);
 // Check connection
 
-var_dump($conn);
+// var_dump($conn);
 
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
