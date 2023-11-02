@@ -1,10 +1,11 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $command = $_POST['command']; // รับคำสั่งจากฟอร์มบนหน้าเว็บ
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // $command = $_POST['command']; // รับคำสั่งจากฟอร์มบนหน้าเว็บ
+    $command="upsc myups@localhost 2>& 1 | grep -v '^Init SSL'";
     $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
 
     echo "<pre>$output</pre>"; // แสดงผลลัพธ์ในหน้าเว็บ
-}
+// }
 ?>
 
 <!DOCTYPE html>
