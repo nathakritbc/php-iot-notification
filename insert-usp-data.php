@@ -45,7 +45,7 @@
 
     var_dump($_POST);
        
-       if   ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["submit_insert_data_ups"]) {
+       if   (isset($_POST["submit_insert_data_ups"])) {
         
             include_once("./configs/connectDB.php");
             $sql = "INSERT INTO `test-demo` (`id`, `voltage`, `temperature`) 
