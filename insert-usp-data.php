@@ -31,7 +31,7 @@
                 <input type="text" readonly class="form-control" name="voltage" id="">
                 <?php 
             $command="upsc myups@localhost battery.voltage";
-            $command="upsc myups@localhost";
+            // $command="upsc myups@localhost";
 
             $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
 
