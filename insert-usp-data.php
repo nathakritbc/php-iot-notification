@@ -14,6 +14,10 @@
 
 <body>
 
+    <?php
+          include_once("./configs/connectDB.php");
+     ?>
+
     <button type="button" class="btn btn-primary">Primary</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
