@@ -42,8 +42,7 @@
 
 
     <?php
-
-    var_dump($_POST);
+ 
        
        if   (isset($_POST["submit_insert_data_ups"])) {
         
