@@ -42,6 +42,8 @@
 
 
     <?php
+
+    var_dump($_POST);
        
        if   ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["submit_insert_data_ups"]) {
         
