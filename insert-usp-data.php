@@ -19,6 +19,12 @@
      ?>
 
     <div class="container">
+        <?php 
+            $command="sudo upsc myups@localhost battery.voltage";
+            $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
+
+            echo "<pre>$output</pre>"; 
+        ?>
         <form>
             <div class="mb-3">
                 <label for="" class="form-label">Voltage</label>
