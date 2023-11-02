@@ -16,31 +16,29 @@
 
     <?php
           include_once("./configs/connectDB.php");
-          function getUPSInfo($upsName) {
-                $command = "sudo upsc $upsName";
-                $output = shell_exec($command);
-                return $output;
-            }
+          
      ?>
 
     <div class="container">
 
         <form>
             <div class="mb-3">
+                <?php                   
+                   $voltage_command="upsc myups@localhost battery.voltage"; 
+                   $voltage = shell_exec($voltage_command); 
+
+                   $temperature_command="upsc myups@localhost ups.temperature"; 
+                   $temperature = shell_exec($voltage_command);
+                   ?>
                 <label for="" class="form-label">Voltage</label>
-                <input type="text" readonly class="form-control" name="voltage" id="">
+                <input type="text" readonly class="form-control" value="<?=$voltage?>" name="voltage" id="">
                 <?php 
-            $command="upsc myups@localhost battery.voltage";
-            // $command="upsc myups@localhost";
 
-            $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
-
-            echo "<pre>$output</pre>"; 
         ?>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Temperature</label>
-                <input type="text" readonly class="form-control" name="temperature" id="">
+                <input type="text" readonly class="form-control" name="temperature" value="<?=$temperature?>" id="">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
