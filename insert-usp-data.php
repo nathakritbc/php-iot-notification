@@ -19,16 +19,17 @@
      ?>
 
     <div class="container">
-        <?php 
+
+        <form>
+            <div class="mb-3">
+                <label for="" class="form-label">Voltage</label>
+                <input type="text" readonly class="form-control" name="voltage" id="">
+                <?php 
             $command="sudo upsc myups@localhost battery.voltage";
             $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
 
             echo "<pre>$output</pre>"; 
         ?>
-        <form>
-            <div class="mb-3">
-                <label for="" class="form-label">Voltage</label>
-                <input type="text" readonly class="form-control" name="voltage" id="">
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Temperature</label>
