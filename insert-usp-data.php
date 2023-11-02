@@ -14,14 +14,10 @@
 
 <body>
 
-    <?php
-          include_once("./configs/connectDB.php");
-          
-     ?>
 
     <div class="container">
 
-        <form>
+        <form method="POST">
             <div class="mb-3">
                 <?php                   
                    $voltage_command="upsc myups@localhost battery.voltage"; 
@@ -40,9 +36,30 @@
                 <label for="" class="form-label">Temperature</label>
                 <input type="text" readonly class="form-control" name="temperature" value="<?=$temperature?>" id="">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit_insert_data_ups" class="btn btn-primary">Submit</button>
         </form>
     </div>
+
+
+    <?php
+       
+       if   ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST["submit_insert_data_ups"]) {
+        
+            include_once("./configs/connectDB.php");
+            $sql = "INSERT INTO `test-demo` (`id`, `voltage`, `temperature`) 
+                    VALUES (NULL, '{$_POST["voltage"]}', '{$_POST["temperature"]}');";
+
+            if (mysqli_query($conn, $sql)) {
+            echo "New record created successfully";
+            } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+
+            mysqli_close($conn);
+            
+        }
+    
+    ?>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
