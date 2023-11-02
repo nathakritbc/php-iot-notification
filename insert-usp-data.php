@@ -30,8 +30,8 @@
                 <label for="" class="form-label">Voltage</label>
                 <input type="text" readonly class="form-control" name="voltage" id="">
                 <?php 
-            $command="sudo upsc myups@localhost battery.voltage";
-            $command="sudo upsc myups@localhost ";
+            $command="upsc myups@localhost battery.voltage";
+            $command="upsc myups@localhost";
 
             $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
 
