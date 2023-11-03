@@ -2,6 +2,7 @@
     "require": {
         "guzzlehttp/guzzle": "^7.8",
         "linecorp/line-bot-sdk": "^3.6",
-        "nutgram/nutgram": "^3.20"
+        "nutgram/nutgram": "^3.20",
+        "cboden/ratchet": "^0.4.4"
     }
 }

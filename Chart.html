@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Real-Time CPU Usage</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.1/socket.io.js"></script>
+    <title>Real-Time Data from MySQL</title>
   </head>
   <body>
-    <div id="cpu-usage"></div>
+    <ul id="real-time-data"></ul>
     <script>
-      const socket = io("ws://your-server-domain:8080");
+      const socket = new WebSocket("ws://127.0.0.1:8080");
 
-      socket.on("message", (cpuData) => {
-        // อัพเดตข้อมูลการใช้งาน CPU ที่แสดงบนหน้าเว็บ
-        document.getElementById(
-          "cpu-usage"
-        ).textContent = `CPU Usage: ${cpuData}%`;
-      });
+      socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        const list = document.getElementById("real-time-data");
+        list.innerHTML = "";
+
+        data.forEach((item) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `ID: ${item.id}, Name: ${item.name}, Value: ${item.value}`;
+          list.appendChild(listItem);
+        });
+      };
     </script>
   </body>
 </html>
