@@ -1,5 +1,5 @@
 <?php
-$command = 'sudo reboot';
+$command = 'reboot';
 $output = shell_exec($command);
 echo "Rebooting server...";
 
