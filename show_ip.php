@@ -34,8 +34,9 @@ if (preg_match('/netmask (\d+\.\d+\.\d+\.\d+)/', $ifconfigOutput, $matches)) {
     echo "Unable to retrieve IP Address for wlan0.";
 }
 
- 
-
+function getNetwork(){
+    
+}
 
 
 ?>
