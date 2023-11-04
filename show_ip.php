@@ -20,12 +20,12 @@ $ipAddress="";
 $netmask="";
 
 // ใช้ preg_match เพื่อค้นหาเลข IP address จากผลลัพธ์ของ ifconfig
-if (preg_match('/inet (\d+\.\d+\.\d+\.\d+)/', $ifconfigOutput, $matches)) {
-    $ipAddress = $matches[1];
-    echo "Your IP Address for wlan0 is: $ipAddress";
-} else {
-    echo "Unable to retrieve IP Address for wlan0.";
-}
+// if (preg_match('/inet (\d+\.\d+\.\d+\.\d+)/', $ifconfigOutput, $matches)) {
+//     $ipAddress = $matches[1];
+//     echo "Your IP Address for wlan0 is: $ipAddress";
+// } else {
+//     echo "Unable to retrieve IP Address for wlan0.";
+// }
 
 // if (preg_match('/netmask (\d+\.\d+\.\d+\.\d+)/', $ifconfigOutput, $matches)) {
 //     $netmask = $matches[1];
@@ -33,10 +33,10 @@ if (preg_match('/inet (\d+\.\d+\.\d+\.\d+)/', $ifconfigOutput, $matches)) {
 // } else {
 //     echo "Unable to retrieve IP Address for wlan0.";
 // }
-
-function getNetwork(){
-    
-}
+ 
+$default_gateway = shell_exec('ip route show default | awk \'/default/ {print $3}\'');
+echo "Default Gateway: " . $default_gateway;
+ 
 
 
 ?>
