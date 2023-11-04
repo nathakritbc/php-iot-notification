@@ -34,15 +34,28 @@ $netmask="";
 //     echo "Unable to retrieve IP Address for wlan0.";
 // } 
 // รันคำสั่ง ip route เพื่อดึงข้อมูลเส้นทางและ Default Gateway
-$ipRouteOutput = shell_exec('ip route');
+// $ipRouteOutput = shell_exec('ip route');
 
-// ใช้ preg_match เพื่อค้นหา Default Gateway จากผลลัพธ์ของ ip route
-if (preg_match('/default via (\d+\.\d+\.\d+\.\d+)/', $ipRouteOutput, $matches)) {
-    $defaultGateway = $matches[1];
-    echo "Default Gateway IP Address: $defaultGateway";
+// // ใช้ preg_match เพื่อค้นหา Default Gateway จากผลลัพธ์ของ ip route
+// if (preg_match('/default via (\d+\.\d+\.\d+\.\d+)/', $ipRouteOutput, $matches)) {
+//     $defaultGateway = $matches[1];
+//     echo "Default Gateway IP Address: $defaultGateway";
+// } else {
+//     echo "Unable to retrieve Default Gateway IP Address.";
+// } 
+
+ 
+// Execute the command to get DNS server information using ipconfig
+$ipconfigOutput = shell_exec('ipconfig /all');
+
+// Extract and display DNS server information
+if (preg_match_all('/DNS Servers.*?(\d+\.\d+\.\d+\.\d+)/s', $ipconfigOutput, $matches)) {
+    $dnsServers = $matches[1];
+    echo "DNS Servers:\n";
+    foreach ($dnsServers as $server) {
+        echo "$server\n";
+    }
 } else {
-    echo "Unable to retrieve Default Gateway IP Address.";
-} 
-
-
+    echo "Unable to retrieve DNS server information.";
+}
 ?>
