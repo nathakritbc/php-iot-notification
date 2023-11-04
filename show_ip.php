@@ -1,7 +1,12 @@
 <?php
-// ดึงเลข IP address จาก PHP
-$ipAddress = $_SERVER['REMOTE_ADDR'];
+// รันคำสั่ง ifconfig เพื่อดึงข้อมูลเครือข่าย
+$ifconfigOutput = shell_exec('ifconfig');
 
-// แสดงเลข IP address ใน HTML
-echo "Your IP Address is: $ipAddress";
+// ใช้ preg_match เพื่อค้นหาเลข IP address จากผลลัพธ์ของ ifconfig
+if (preg_match('/inet (\d+\.\d+\.\d+\.\d+)/', $ifconfigOutput, $matches)) {
+    $ipAddress = $matches[1];
+    echo "Your IP Address is: $ipAddress";
+} else {
+    echo "Unable to retrieve IP Address.";
+}
 ?>
