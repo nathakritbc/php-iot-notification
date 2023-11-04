@@ -2,7 +2,7 @@
 $ssid = "GuGa";
 $password = "*9876543210";
 
-$command = "nmcli device wifi connect '$ssid' password '$password'";
+$command = "nmcli dev wifi connect 'A71D15B' password 'wroi5742' ";
 $output = shell_exec($command);
 
 if ($output !== null) {
