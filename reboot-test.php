@@ -19,17 +19,39 @@
 </head>
 
 <body class="d-flex vw-100 vh-100 align-items-center justify-content-center">
-    <button class="btn btn-primary">
+    <button class="btn btn-primary" onClick="reboot()">
         <i class="fab fa-accessible-icon me-1"></i>Hello, world!
     </button>
 
 
 
 
+    <script>
+    const url = 'http://192.168.137.211:1880/reboot?id=01';
 
+    const data = {
 
+    };
 
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
 
+    function reboot() {
+        fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response data:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    </script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
