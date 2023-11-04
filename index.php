@@ -3,7 +3,7 @@
     $command = $_POST['command']; // รับคำสั่งจากฟอร์มบนหน้าเว็บ
     // $command="upsc myups@localhost 2>& 1 | grep -v '^Init SSL'";
     // $command="upsc myups@localhost battery.voltage";
-    $output = exec($command); // รันคำสั่งและรับผลลัพธ์
+    $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
 
     echo "<pre>$output</pre>";  
   }
