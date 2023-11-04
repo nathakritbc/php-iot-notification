@@ -7,6 +7,8 @@ $ipAddress = '';
 $subnetMask = '';
 $gateway = '';
 
+echo $ifconfigOutput;
+
 // ใช้ preg_match เพื่อค้นหาข้อมูลที่คุณต้องการ
 if (preg_match('/inet (\d+\.\d+\.\d+\.\d+).+netmask (\d+\.\d+\.\d+\.\d+).+gateway (\d+\.\d+\.\d+\.\d+)/s', $ifconfigOutput, $matches)) {
     $ipAddress = $matches[1];
