@@ -1,14 +1,13 @@
 <?php
-$interface = 'eth0';
-$ipAddress = '192.168.1.101';
-$netmask = '255.255.255.0';
+$ssid = "GuGa";
+$password = "*9876543210";
 
-// คำสั่ง ifconfig เพื่อกำหนดที่อยู่ IP แบบคงที่
-$command = "sudo ifconfig $interface $ipAddress netmask $netmask";
+$command = "nmcli device wifi connect '$ssid' password '$password'";
+$output = shell_exec($command);
 
-// ใช้ shell_exec() เรียกคำสั่ง
-$result = shell_exec($command);
-
-// แสดงผลลัพธ์
-echo "<pre>$result</pre>";
+if ($output !== null) {
+    echo "Command output: $output";
+} else {
+    echo "Error executing the command.";
+}
 ?>
