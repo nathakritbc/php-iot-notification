@@ -1,5 +1,10 @@
 <?php
-$command = "sudo reboot";
+$command = 'sudo reboot';
 $output = exec($command);
 
-echo $output;
+if ($output !== null) {
+    echo "Command executed: $output";
+} else {
+    echo "Command failed to execute.";
+}
+?>
