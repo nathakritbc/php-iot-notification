@@ -61,13 +61,14 @@ $netmask="";
 // }
  
 // รันคำสั่ง ifconfig เพื่อดึงข้อมูลเครือข่าย
-$ifconfigOutput = shell_exec('ifconfig');
+ 
+// อ่านเนื้อหาของไฟล์ /etc/network/interfaces
+$networkConfig = file_get_contents('/etc/network/interfaces');
 
-// ตรวจสอบว่าคำว่า "inet" ปรากฏในผลลัพธ์ (Static) หรือไม่
-if (strpos($ifconfigOutput, 'inet') !== false) {
-    echo "IP address is Static.";
-} else {
+// ตรวจสอบว่าคำว่า "dhcp" ปรากฏในไฟล์ (Dynamic) หรือไม่
+if (strpos($networkConfig, 'dhcp') !== false) {
     echo "IP address is Dynamic (DHCP).";
-} 
-
+} else {
+    echo "IP address is Static.";
+}
 ?>
