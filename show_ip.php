@@ -60,5 +60,3 @@ if (preg_match('/nameserver\s+(\d+\.\d+\.\d+\.\d+)/', $dnsConfig, $matches)) {
     echo "Unable to retrieve DNS server information.";
 }
 ?>
-
-?>
