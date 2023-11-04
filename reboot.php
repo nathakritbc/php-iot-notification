@@ -1,13 +1,10 @@
 <?php
-$command = 'sudo reboot';
-  $output = shell_exec('./reboot.sh');
+$script_path = './reboot.sh';
+$output = shell_exec($script_path);
 
-echo "Rebooting server...";
-
-// You can optionally add error handling to check if the command was executed successfully.
-if ($output === null) {
-    echo "Command failed to execute.";
+if ($output !== null) {
+    echo "Command executed: $output";
 } else {
-    echo "Command executed successfully.";
+    echo "Command failed to execute.";
 }
 ?>
