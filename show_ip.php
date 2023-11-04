@@ -32,11 +32,17 @@ $netmask="";
 //     echo "Your IP Address for wlan0 is: $netmask";
 // } else {
 //     echo "Unable to retrieve IP Address for wlan0.";
-// }
- 
-$default_gateway = shell_exec('ip route show default | awk \'/default/ {print $3}\'');
-echo "Default Gateway: " . $default_gateway;
- 
+// } 
+// รันคำสั่ง ip route เพื่อดึงข้อมูลเส้นทางและ Default Gateway
+$ipRouteOutput = shell_exec('ip route');
+
+// ใช้ preg_match เพื่อค้นหา Default Gateway จากผลลัพธ์ของ ip route
+if (preg_match('/default via (\d+\.\d+\.\d+\.\d+)/', $ipRouteOutput, $matches)) {
+    $defaultGateway = $matches[1];
+    echo "Default Gateway IP Address: $defaultGateway";
+} else {
+    echo "Unable to retrieve Default Gateway IP Address.";
+} 
 
 
 ?>
