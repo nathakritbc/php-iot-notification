@@ -46,10 +46,12 @@ $netmask="";
 
  
 // Execute the command to get DNS server information using ipconfig
-$ipconfigOutput = shell_exec('ipconfig /all');
+ 
+// Execute the command to read the DNS configuration from /etc/resolv.conf
+$dnsConfig = shell_exec('cat /etc/resolv.conf');
 
 // Extract and display DNS server information
-if (preg_match_all('/DNS Servers.*?(\d+\.\d+\.\d+\.\d+)/s', $ipconfigOutput, $matches)) {
+if (preg_match_all('/nameserver\s+(\d+\.\d+\.\d+\.\d+)/', $dnsConfig, $matches)) {
     $dnsServers = $matches[1];
     echo "DNS Servers:\n";
     foreach ($dnsServers as $server) {
