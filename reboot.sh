@@ -1,1 +1,1 @@
-chmod +x reboot.sh
+sudo /sbin/reboot
