@@ -1,6 +1,7 @@
 <?php
 $command = 'sudo reboot';
-$output = shell_exec($command);
+  $output = shell_exec('./reboot.sh');
+
 echo "Rebooting server...";
 
 // You can optionally add error handling to check if the command was executed successfully.
