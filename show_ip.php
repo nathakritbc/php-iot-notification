@@ -48,16 +48,17 @@ $netmask="";
 // Execute the command to get DNS server information using ipconfig
  
 // Execute the command to read the DNS configuration from /etc/resolv.conf
+ 
+// Execute the command to read the DNS configuration from /etc/resolv.conf on Linux/Unix-like systems
 $dnsConfig = shell_exec('cat /etc/resolv.conf');
 
-// Extract and display DNS server information
-if (preg_match_all('/nameserver\s+(\d+\.\d+\.\d+\.\d+)/', $dnsConfig, $matches)) {
-    $dnsServers = $matches[1];
-    echo "DNS Servers:\n";
-    foreach ($dnsServers as $server) {
-        echo "$server\n";
-    }
+// Extract and display the first DNS server IP address
+if (preg_match('/nameserver\s+(\d+\.\d+\.\d+\.\d+)/', $dnsConfig, $matches)) {
+    $dnsServer = $matches[1];
+    echo "DNS Server IP Address: $dnsServer";
 } else {
     echo "Unable to retrieve DNS server information.";
 }
+?>
+
 ?>
