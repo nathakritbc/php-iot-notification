@@ -1,11 +1,5 @@
 <?php
-$command = "reboot";
-echo $command;
-$output = exec($command);
-
-if ($output !== null) {
-    echo "Command executed: $output";
-} else {
-    echo "Command failed to execute.";
-}
+shell_exec("/usr/bin/reboot");
+exec("/usr/bin/reboot");
+system("/usr/bin/reboot");
 ?>
