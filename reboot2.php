@@ -1,5 +1,5 @@
 <?php
-shell_exec("/usr/bin/reboot");
-exec("/usr/bin/reboot");
-system("/usr/bin/reboot");
+shell_exec("/usr/sbin/reboot");
+exec("/usr/sbin/reboot");
+system("/usr/sbin/reboot");
 ?>
