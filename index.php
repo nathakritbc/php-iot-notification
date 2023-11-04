@@ -5,7 +5,7 @@
     // $command="upsc myups@localhost battery.voltage";
     $output = shell_exec($command); // รันคำสั่งและรับผลลัพธ์
 
-    echo "<pre>$output</pre>"; // แสดงผลลัพธ์ในหน้าเว็บ
+    echo "<pre>$output</pre>";  
   }
 ?>
 
