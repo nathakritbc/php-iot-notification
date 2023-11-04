@@ -1,5 +1,5 @@
 <?php
-$command = 'sudo reboot';
+$command = "sudo reboot";
 $output = exec($command);
 
 if ($output !== null) {
