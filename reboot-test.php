@@ -1,6 +1,6 @@
 <?php
-$ssh_command = 'sudo reboot';
-$output = shell_exec($ssh_command);
+$command = 'sudo /sbin/reboot';
+$output = shell_exec($command);
 
 if ($output !== null) {
     echo "Command executed: $output";
