@@ -24,7 +24,6 @@ function alertError($title,$text,$locationRedirect){
          </script>";
 }
 
- 
 
 function alertConfirm($title,$text,$titleIsConfirm,$textIsConfirm,$locationRedirect,$id){
     echo "<script>

@@ -95,7 +95,6 @@
         include_once("./sweetalert2_function.php");
         $locationRedirect="./show_data.php";
         include_once("./delete_data.php"); 
-
     ?>
 
 
