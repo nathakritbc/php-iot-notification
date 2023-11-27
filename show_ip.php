@@ -63,12 +63,9 @@ $netmask="";
 // รันคำสั่ง ifconfig เพื่อดึงข้อมูลเครือข่าย
  
 // อ่านเนื้อหาของไฟล์ /etc/network/interfaces
-$networkConfig = file_get_contents('/etc/network/interfaces');
+// Get the user's IP address from X-Forwarded-For header
+$userIP = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 
-// ตรวจสอบว่าคำว่า "dhcp" ปรากฏในไฟล์ (Dynamic) หรือไม่
-if (strpos($networkConfig, 'dhcp') !== false) {
-    echo "IP address is Dynamic (DHCP).";
-} else {
-    echo "IP address is Static.";
-}
+// Display the IP address
+echo "Your IP Address is: " . $userIP;
 ?>
